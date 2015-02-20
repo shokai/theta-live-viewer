@@ -1,0 +1,16 @@
+html, body {
+  height: 100%;
+}
+
+body, div{
+  padding:0px;
+  margin:0px;
+}
+
+#viewer{
+  height: 100%;
+}
+
+a{
+  color:#00b7ff;
+}

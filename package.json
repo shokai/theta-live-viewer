@@ -1,0 +1,49 @@
+{
+  "name": "theta-live-camera",
+  "private": true,
+  "version": "0.0.1",
+  "description": "theta live camera",
+  "main": "app.coffee",
+  "scripts": {
+    "start": "coffee app.coffee",
+    "test": "grunt test"
+  },
+  "author": "Sho Hashimoto <hashimoto@shokai.org>",
+  "license": "MIT",
+  "dependencies": {
+    "coffee-script": "^1.8.0",
+    "debug": "*",
+    "express": "^4.11.1",
+    "jade": "*",
+    "ricoh-theta": "^0.3.3",
+    "socket.io": "^1.3",
+    "socket.io-client": "^1.3"
+  },
+  "devDependencies": {
+    "coffeelint": "*",
+    "coffee-errors": "*",
+    "grunt": "*",
+    "grunt-cli": "*",
+    "grunt-coffeelint": "*",
+    "grunt-contrib-csslint": "*",
+    "grunt-contrib-watch": "*",
+    "grunt-notify": "*",
+    "grunt-jsonlint": "*",
+    "grunt-simple-mocha": "*",
+    "mocha": "*",
+    "supertest": "*"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/shokai/theta-live-viewer.git"
+  },
+  "keywords": [
+    "express",
+    "socket.io",
+    "chat"
+  ],
+  "bugs": {
+    "url": "https://github.com/shokai/theta-live-viewer/issues"
+  },
+  "homepage": "https://github.com/shokai/theta-live-viewer"
+}
