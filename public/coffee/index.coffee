@@ -12,6 +12,7 @@ socket.on 'init pictures', (pictures) ->
 socket.on 'new picture', (picture) ->
   console.log picture
   viewer.images.push picture.url
+  viewer.load()
 
 $ ->
   console.log 'start!!'
