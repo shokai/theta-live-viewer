@@ -7,8 +7,8 @@ debug    = require('debug')('theta-live-viewer:app')
 express  = require 'express'
 
 ## config ##
-config       = require path.resolve 'config.json'
-package_json = require path.resolve 'package.json'
+config  = require path.resolve 'config.json'
+pkg     = require path.resolve 'package.json'
 process.env.PORT ||= 3000
 
 
@@ -22,13 +22,14 @@ http = require('http').Server(app)
 io = require('socket.io')(http)
 app.set 'socket.io', io
 app.set 'config', config
-app.set 'package', package_json
+app.set 'package', pkg
 
 
 ## load controllers, models, socket.io ##
 components =
   controllers: [ 'main' ]
-  sockets: [ 'theta' ]
+  models:      [ ]
+  sockets:     [ 'theta' ]
 
 for type, items of components
   for item in items

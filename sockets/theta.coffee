@@ -5,19 +5,17 @@ _     = require 'lodash'
 debug = require('debug')('theta-live-viewer:sockets:theta')
 Theta = require 'ricoh-theta'
 theta = new Theta()
-try
-  theta.connect process.env.THETA_ADDR
-catch err
-  console.error
+theta.connect process.env.THETA_ADDR
 
 theta.once 'connect', ->
   theta.capture (err) ->
     debug err if err
 
-
 module.exports = (app) ->
+
   io = app.get 'socket.io'
 
+  ## 新規クライアントに全写真を通知する
   io.on 'connection', (socket) ->
     debug 'new connection'
     fs.readdir path.resolve("public/pictures"), (err, files) ->
@@ -29,6 +27,8 @@ module.exports = (app) ->
   capture_timer_id = null
   theta.on 'objectAdded', (object_id) ->
     debug "objectAdded: #{object_id}"
+
+    ## 写真をディスクに保存してSocket.IOで通知する
     theta.getPicture object_id, (err, picture) ->
       return debug err if err
       fname = "#{Date.now()}.jpg"
@@ -39,6 +39,7 @@ module.exports = (app) ->
           url: "/pictures/#{fname}"
           date: Date.now()
 
+        ## 30秒後にまた撮影する
         clearTimeout capture_timer_id
         capture_timer_id = setTimeout ->
           theta.capture (err) ->
