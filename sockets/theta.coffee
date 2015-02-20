@@ -5,11 +5,15 @@ _     = require 'lodash'
 debug = require('debug')('theta-live-viewer:controller:theta')
 Theta = require 'ricoh-theta'
 theta = new Theta()
-theta.connect process.env.THETA_ADDR
+try
+  theta.connect process.env.THETA_ADDR
+catch err
+  console.error
 
 theta.once 'connect', ->
   theta.capture (err) ->
     debug err if err
+
 
 module.exports = (app) ->
   io = app.get 'socket.io'
@@ -22,6 +26,7 @@ module.exports = (app) ->
       files = files.map (file) -> "/pictures/#{file}"
       socket.emit 'init pictures', files
 
+  capture_timer_id = null
   theta.on 'objectAdded', (object_id) ->
     debug "objectAdded: #{object_id}"
     theta.getPicture object_id, (err, picture) ->
@@ -33,3 +38,9 @@ module.exports = (app) ->
         io.sockets.emit 'new picture',
           url: "/pictures/#{fname}"
           date: Date.now()
+
+        clearTimeout capture_timer_id
+        capture_timer_id = setTimeout ->
+          theta.capture (err) ->
+            debug err if err
+        , 30 * 1000

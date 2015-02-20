@@ -12,11 +12,10 @@ socket.on 'init pictures', (pictures) ->
 socket.on 'new picture', (picture) ->
   console.log picture
   viewer.images.push picture.url
-  viewer.load()
 
 $ ->
   console.log 'start!!'
   window.viewer = new ThetaViewer document.getElementById 'viewer'
-  viewer.interval = 1200
+  viewer.interval = 200
   viewer.autoRotate = true
 
