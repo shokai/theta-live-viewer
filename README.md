@@ -5,7 +5,7 @@
 - capture with THETA every minutes, notify via Socket.IO
 - commentary has been published in [Web+DB Press vol.85](http://www.amazon.co.jp/dp/4774171417/shokai-22)
 
-![screenshot](http://gyazo.com/d2722da1872e66d75ab00631b05fd6a7.gif)
+![screenshot](http://gyazo.com/8b35ced9c5b0da84768f5a6feac0d14f.gif)
 
 
 ## Install Dependencies
