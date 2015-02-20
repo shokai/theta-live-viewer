@@ -3,7 +3,7 @@
 process.env.THETA_ADDR  ||= '192.168.1.1'
 
 path     = require 'path'
-debug    = require('debug')('theta-live-camera:app')
+debug    = require('debug')('theta-live-viewer:app')
 express  = require 'express'
 
 ## config ##

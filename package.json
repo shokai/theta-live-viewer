@@ -1,8 +1,8 @@
 {
-  "name": "theta-live-camera",
+  "name": "theta-live-viewer",
   "private": true,
   "version": "0.0.1",
-  "description": "theta live camera",
+  "description": "RICOH THETA Live Camera",
   "main": "app.coffee",
   "scripts": {
     "start": "coffee app.coffee",
@@ -11,7 +11,7 @@
   "author": "Sho Hashimoto <hashimoto@shokai.org>",
   "license": "MIT",
   "dependencies": {
-    "coffee-script": "^1.8.0",
+    "coffee-script": "^1.9.1",
     "debug": "*",
     "express": "^4.11.1",
     "jade": "*",
