@@ -2,7 +2,7 @@ fs   = require 'fs'
 path = require 'path'
 
 _     = require 'lodash'
-debug = require('debug')('theta-live-viewer:controller:theta')
+debug = require('debug')('theta-live-viewer:sockets:theta')
 Theta = require 'ricoh-theta'
 theta = new Theta()
 try
