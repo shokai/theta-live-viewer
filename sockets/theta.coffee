@@ -39,9 +39,9 @@ module.exports = (app) ->
           url: "/pictures/#{fname}"
           date: Date.now()
 
-        ## 30秒後にまた撮影する
+        ## 60秒後にまた撮影する
         clearTimeout capture_timer_id
         capture_timer_id = setTimeout ->
           theta.capture (err) ->
             debug err if err
-        , 30 * 1000
+        , 60 * 1000
