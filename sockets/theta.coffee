@@ -20,7 +20,7 @@ module.exports = (app) ->
     debug 'new connection'
     fs.readdir path.resolve("public/pictures"), (err, files) ->
       return debug err if err
-      files = _.filter files, (file) -> /^\d+.jpg$/.test file
+      files = _.filter files, (file) -> /^\d+\.jpg$/.test file
       files = files.map (file) -> "/pictures/#{file}"
       socket.emit 'init pictures', files
 
