@@ -38,4 +38,4 @@ for type, items of components
 
 ## start server ##
 http.listen process.env.PORT, ->
-  debug "server start - port:#{process.env.PORT}"
+  (if debug.enabled then debug else console.log) "server start - port:#{process.env.PORT}"
