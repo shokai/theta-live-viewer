@@ -16,3 +16,8 @@
 ## Run
 
     % DEBUG=theta* npm start
+
+
+# LICENSE
+
+MIT
